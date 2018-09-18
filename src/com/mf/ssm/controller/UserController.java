@@ -224,7 +224,7 @@ public class UserController {
 	 public ResponseEntity<ResultModel> login(@RequestParam Map<String,String> map) throws Exception {
 		 
 		 //logger.debug("login-->/loginMb-->username=" + username + " password=" + password);
-		 System.out.print("^^^^^^^^^^^^^/loginMb^^^^^^^^^^^^^^^^^^^^^");
+		 System.out.print("^^^^^^^^^^^^^/loginMb^^^^^^^^^^^^^^^^^^^^^is start");
 		 String username = "test";
 		 String password = "123";
 		 User user = userService.findByUsername(username);
