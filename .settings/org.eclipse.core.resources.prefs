@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/com/mf/ssm/annotation/Authorization.java=UTF-8
+encoding//src/com/mf/ssm/config/Constants.java=UTF-8
+encoding//src/com/mf/ssm/config/ResultStatus.java=UTF-8
+encoding//src/com/mf/ssm/model/ResultModel.java=UTF-8
+encoding//src/com/mf/ssm/token/authorization/manager/RedisTokenManager.java=UTF-8
+encoding//src/com/mf/ssm/utils/Base64Utils.java=UTF-8
+encoding//src/com/mf/ssm/utils/DateFormatUtil.java=UTF-8
+encoding//src/com/mf/ssm/utils/MD5Utils.java=UTF-8
+encoding//src/com/mf/ssm/utils/RSAUtils.java=UTF-8

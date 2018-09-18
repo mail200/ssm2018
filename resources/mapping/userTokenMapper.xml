@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="com.mf.ssm.dao.UserTokenMapper">
+
+    <resultMap type="com.mf.ssm.pojo.UserToken" id="userTokenMap">
+        <id property="id" column="id" />
+        <result property="token" column="token" />
+        <result property="expires" column="expires" />
+        <result property="expiresIn" column="expires_in" />          
+    </resultMap>
+    
+    <sql id="Base_Column_List" >  
+	    ID, TOKEN, EXPIRES, EXPIRES_IN
+    </sql>
+    
+    <!-- 此处select标签的id值对应Mapper类中方法名 -->
+    <select id="getUserTokenById" parameterType="java.lang.Long" resultMap="userTokenMap">
+            <!-- 此处写sql语句,#{Mapper类传入的参数} -->
+            select * from T_USER_TOKEN where id = #{id}	
+    </select>
+    
+  <insert id="insertUserToken" parameterType="UserToken" >  
+    insert into T_USER_TOKEN  
+    <trim prefix="(" suffix=")" suffixOverrides="," >  
+      <if test="id != null" >  
+        ID,  
+      </if>  
+      <if test="token != null" >  
+        TOKEN,  
+      </if>  
+      <if test="expires != null" >  
+        EXPIRES,  
+      </if>
+      <if test="expiresIn != null" >  
+        EXPIRES_IN,  
+      </if> 
+    </trim>  
+    <trim prefix="values (" suffix=")" suffixOverrides="," >  
+      <if test="id != null" >  
+        #{id,jdbcType=BIGINT},  
+      </if>   
+      <if test="token != null" >  
+        #{token,jdbcType=VARCHAR},  
+      </if>
+      <if test="expires != null" >  
+        #{expires,jdbcType=VARCHAR},  
+      </if> 
+      <if test="expiresIn != null" >  
+        #{expiresIn,jdbcType=BIGINT},  
+      </if> 
+    </trim> 
+  </insert>
+  
+  <delete id="deleteUserTokenByPrimaryKey" parameterType="java.lang.Long" >  
+    delete from T_USER_TOKEN  
+    where ID = #{id,jdbcType=BIGINT}  
+  </delete>
+  
+  <update id="updateUserTokenByPrimaryKey" parameterType="UserToken" >  
+    update T_USER_TOKEN  
+    <set >  
+      <if test="token != null" >  
+        TOKEN = #{token,jdbcType=VARCHAR},  
+      </if>  
+      <if test="expires != null" >  
+        EXPIRES = #{expires,jdbcType=VARCHAR},  
+      </if>
+      <if test="expiresIn != null" >  
+        EXPIRES_IN = #{expiresIn,jdbcType=BIGINT},  
+      </if>             
+    </set>  
+    where ID = #{id,jdbcType=BIGINT}  
+  </update>  
+</mapper>
